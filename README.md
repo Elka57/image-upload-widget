@@ -1,60 +1,98 @@
-🖼️ ImageUpload Widget
-A reusable React component for uploading and previewing images. Built with React, Vite, MUI, and Emotion to provide a modern, accessible, and easy-to-integrate image picker.
+# 🖼️ ImageUpload Виджет
 
-🚀 Table of Contents
-Tech Stack
-Features
-Installation
-Running Locally
-Storybook Demo
-Usage
-Props
-License
+Переиспользуемый React-компонент для загрузки и предварительного просмотра изображений. Построен с React, Vite, MUI и Emotion — обеспечивает современный, доступный и легко интегрируемый виджет для работы с картинками.
 
-💻 Tech Stack
-React 18
-Vite
-MUI (Material UI)
-Emotion (@emotion/react & @emotion/styled)
-Storybook
+---
 
-✨ Features
-Preview image immediately after selection
-File type validation (only images)
-File size validation (max 5 MB)
-Delete/reset functionality
-Customizable label and styling
-Accessible (ARIA) and responsive
-Easy integration into any form
+## 🚀 Оглавление
 
-📦 Installation
-Clone the repository and install dependencies:
-bash
-git clone https://github.com/yourusername/image-upload-widget.git
-cd image-upload-widget
-npm install
-Install peer dependencies for MUI:
-bash
-npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
+- [🖼️ ImageUpload Виджет](#️-imageupload-виджет)
+  - [🚀 Оглавление](#-оглавление)
+  - [💻 Технологии](#-технологии)
+  - [✨ Возможности](#-возможности)
+  - [📦 Установка](#-установка)
+  - [🏃 Локальный запуск](#-локальный-запуск)
+  - [📚 Демо в Storybook](#-демо-в-storybook)
+  - [🔧 Использование](#-использование)
+  - [📋 Параметры (Props)](#-параметры-props)
+  - [📝 Лицензия](#-лицензия)
 
-🏃 Running Locally
-To preview the component in a minimal app via Vite:
-bash
+---
+
+## 💻 Технологии
+
+- React 18
+- Vite
+- MUI (Material UI)
+- Emotion (`@emotion/react` & `@emotion/styled`)
+- Storybook
+
+---
+
+## ✨ Возможности
+
+- Мгновенный превью выбранного изображения
+- Валидация типа файла (только изображения)
+- Валидация размера файла (не более 5 МБ)
+- Удаление/сброс выбранного файла
+- Пользовательская надпись (label) и стилизация
+- Доступность (ARIA) и адаптивная вёрстка
+- Лёгкая интеграция в любые формы
+
+---
+
+## 📦 Установка
+
+1. Клонируйте репозиторий и перейдите в папку:
+
+```bash
+  git clone https://github.com/Elka57/image-upload-widget.git
+  cd image-upload-widget
+```
+
+2. Установите зависимости:
+
+```bash
+  npm install
+```
+
+3. Установите peer-зависимости для MUI:
+
+```bash
+  npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
+```
+
+## 🏃 Локальный запуск
+
+Чтобы увидеть компонент в минимальном приложении через Vite:
+
+```bash
 npm run dev
-Open your browser at: http://localhost:5173
+```
 
-📚 Storybook Demo
-Storybook lets you interactively explore component states:
-bash
+Откройте в браузере: http://localhost:5173
+
+## 📚 Демо в Storybook
+
+Storybook позволяет интерактивно исследовать состояния компонента:
+
+```bash
 npm run storybook
-Open your browser at: http://localhost:6006
-To build a static Storybook site:
-bash
-npm run build-storybook
+```
 
-🔧 Usage
-Import the component and use it in your form:
-jsx
+Откройте в браузере: http://localhost:6006
+
+Чтобы собрать статичную версию Storybook:
+
+```bash
+npm run build-storybook
+```
+
+## 🔧 Использование
+
+Импортируйте компонент и вставьте в вашу форму:
+
+```jsx
 import React, { useState } from "react";
 import ImageUpload from "./src/ImageUpload";
 
@@ -69,23 +107,33 @@ function ProfileForm() {
         onChange={setImageData}
         required
       />
-      {/* Other form fields… */}
+      {/* Другие поля формы… */}
     </form>
   );
 }
-value expects either null or an object:
-js
+```
+
+Поле value должно быть либо null, либо объектом:
+
+```js
 {
   file: File,         // выбранный файл
   previewUrl: string, // URL.createObjectURL(file)
 }
+```
 
-📋 Props
-Prop	Type	Default	Description
-label	string	""	Text label shown above the preview
-value	`{ file: File, previewUrl: string } \	null`	null	Current image state
-onChange	`(value: { file: File, previewUrl: string } \	null)`	noop	Called when image is selected or deleted
-required	boolean	false	Adds HTML5 required validation to the input
+## 📋 Параметры (Props)
 
-📝 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+| Параметр   | Тип                                                     | По умолчанию    | Описание                                                   |
+|------------|---------------------------------------------------------|-----------------|------------------------------------------------------------|
+| `label`    | `string`                                                | `""`            | Текстовая надпись (лейбл) над областью предпросмотра       |
+| `value`    | `{ file: File; previewUrl: string } \| null`            | `null`          | Текущее состояние: выбранный файл и его URL для предпросмотра |
+| `onChange` | `(value: { file: File; previewUrl: string } \| null)`  | `() => {}`      | Функция-обработчик при выборе или удалении изображения     |
+| `required` | `boolean`                                               | `false`         | Если `true`, добавляет HTML-валидацию `required` к input    |
+
+
+## 📝 Лицензия
+
+Этот проект распространяется под лицензией MIT. Подробности см. в файле LICENSE.
+
+
